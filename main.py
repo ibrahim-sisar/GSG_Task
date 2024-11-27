@@ -1,17 +1,16 @@
 import os
+import datetime
+import cs50
+
+current_date = datetime.datetime.now()
+CurrentYear = int(current_date.year)
 
 
-id_number = 420271777
-first_name  = "Izzedeen"
-last_name = "Alfarra"
-#myAge = CurrentYear - YearOfBirth
-CurrentYear = 2024
-YearOfBirth = 2004
-myAge = CurrentYear - YearOfBirth
-mobile_number = "01018055912"
-email_address = "izzedeenalfarra123@gmail.com"
-
+last_name = cs50.get_string("last name: ")
 file_source = f"{last_name}.txt"
+
+
+
 
 if os.path.exists(file_source):
 
@@ -63,6 +62,13 @@ if os.path.exists(file_source):
    opend_file.close()
 
 else:
+   id_number = cs50.get_int("id number: ")
+   first_name  = cs50.get_string("first name: ")
+   YearOfBirth = cs50.get_int("Year Of Birth: ")
+   myAge = CurrentYear - YearOfBirth
+   mobile_number = cs50.get_string("mobile number: ")
+   email_address = cs50.get_string("email address: ")
+
    data = open(file_source,"w")
    data.write(f"ID Number: {id_number}\n")
    data.write(f"First Name: {first_name}\n")
@@ -71,13 +77,3 @@ else:
    data.write(f"Mobile Number: {mobile_number}\n")
    data.write(f"Email Address: {email_address}\n")
    data.close()
-
-
-
-
-
-
-
-
-
-
